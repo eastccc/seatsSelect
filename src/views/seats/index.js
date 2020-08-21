@@ -168,18 +168,17 @@ class SeatsMap {
      * left 值计算  原left的值 - 增加的宽度/2
      */
     //转换scale
-    this.width*(scale - this.minScale)/2
-      let scale = e.scale*this.oldScale
-      if(scale < 1){
-        this.stageStyle.transform = `translate(${this.stageLeft}px,${this.stageTop}px)scale(${scale})`
-        this.viewBoxStyle.left = this.rate*(this.width*scale - this.targetW) + 'px'
-        if((this.height*scale - this.targetH) > 0){
-          this.viewBoxStyle.top = this.rate*(this.height*scale - this.targetH) + 'px'
-        }
-        this.viewBoxStyle.height = ((this.height*scale - this.targetH) > 0 ? this.vStartHeight*this.targetH/(this.height*scale) : this.vStartHeight) + 'px'
-        this.viewBoxStyle.width = ((this.width*scale - this.targetW) > 0 ? this.vStartWidth*this.targetW/(this.width*scale) : this.vStartWidth) + 'px'      
-        this.curScale = scale
+    let scale = e.scale*this.oldScale
+    if(scale < 1){
+      this.stageStyle.transform = `translate(${this.stageLeft}px,${this.stageTop}px)scale(${scale})`
+      this.viewBoxStyle.left = this.rate*(this.width*scale - this.targetW) + 'px'
+      if((this.height*scale - this.targetH) > 0){
+        this.viewBoxStyle.top = this.rate*(this.height*scale - this.targetH) + 'px'
       }
+      this.viewBoxStyle.height = ((this.height*scale - this.targetH) > 0 ? this.vStartHeight*this.targetH/(this.height*scale) : this.vStartHeight) + 'px'
+      this.viewBoxStyle.width = ((this.width*scale - this.targetW) > 0 ? this.vStartWidth*this.targetW/(this.width*scale) : this.vStartWidth) + 'px'      
+      this.curScale = scale
+    }
   }
   onMove(e){
     /**
