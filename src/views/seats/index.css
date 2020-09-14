@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#seats img {
+  width: 100%;
+  display: block;
+}
+#stagebox {
+  margin-top: 10px;
+  height: 420px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #ddd;
+}
+#stage {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: 1px solid #ff0000;
+}
+#debug {
+  width: 100%;
+  padding: 0 15px;
+  overflow: auto;
+}
+#thumbnail {
+  visibility: hidden;
+  text-align: center;
+  width: 164px;
+  height: 176px;
+  top: 6px;
+  right: 6px;
+  border-radius: 6px;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9999;
+  overflow: hidden;
+}
+#thumbnail img {
+  width: 50%;
+  margin-left: 25%;
+  position: relative;
+}
+#thumbnail #thumbnailStage {
+  top: 12px;
+  position: absolute;
+  height: 164px;
+  width: 164px;
+}
+#thumbnail svg {
+  /* width : 100%; */
+  position: absolute;
+  left: 2px;
+}
+#thumbnail #thumbnailview {
+  z-index: 9999999;
+  position: absolute;
+  box-sizing: border-box;
+  border: 1px solid rgb(255, 45, 121);
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}

@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div id="seats">
+      <img src="./../static/performbg.jpg.png" alt="">
       <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAg0AAAA2CAMAAABz5FrhAAABAlBMVEUAAADn6Ovp6+7n6ezn6ezn6evn6ezo6u3////////n6ezn6ezr6/Dq7e/n6ezn6Ozn6ezn6ezn6uzn6ezn6ezn6u3n6u7p6e/t8/Pu7u7n6ezn6ezn6Ovn6ezo6u3m7Ozm6OtmZma9vsCztLbY293j5ei2t7nc3eB7fHzS1NdtbW3Nz9Goqqt1dXXHycuZmpuKiotnZ2e9v8Fvb2+ur7HX2NuTk5SXmJl/gIB3d3hycnONjo7e4OOGh4eam5xqamqxsrTDxce6u72kpaegoaJoaGjl5+qmp6l5eXrh4+XW19qjpKXJy83BwsSrrK6Sk5SEhIWVlpednp/Q0dSqq616e3tD6toqAAAAIHRSTlMA9jX768+8RAcD3IMlG+PUrJaLd2tbTS4UDvHGtaNiKUidV58AAAWgSURBVHja7d1pV9pqFIbh1wFBcdZW26rdDxCGIAhEJMEgg4Ayo7b//6+cgFhDEgmKR/Nirg+btVzLfOFGwwYC2yOX69EeY9+WyOUiWvrGNN4FcrkWvGxocZlcX93yIhtZXyPX17a2zv7Z8JDrK/NsMJ0fK+T6ulZ+sDG+bXJ9Vds+ZrC6Q66vaWeVme0Rv4Szaoem0o7TFJph+wOVyirNgz1m6WSJeFUFwjSNkAQlRHZuANu4LoEs8W/phL3g+wLxKQP0aRr1AnBDtppF3Ao0kVpDgfi38J1Z4HoPVRbxgob5QZ+iKbRs/9YEgTBxT9s5TfB7k7jTuAKmrCGZhqLSSLY84Zh5RGmiAooq8W7zN5toY4s4k1SAvxLuk8mkhKo2b5HTpoyUNuukF0qg+EAj1VqtTc/UyJguUIno0YAQe9JOIxUbx18cWxvMxuEv4ksY6Zag4JyIEihpU8aNNgvIkYEaBSr0pJxGIkL/9DCR+JgTJggSZ34dMguc76Fu4kTT1CCkgCo9OwUK9S9cw7aPWeB/DzVVDfU74J70LvV1lINP+qgFTcJPNVwELHX5qMG8c7LnJ44EEpoaJG2mh7MGUZvF4ZTpSWN03+uoClAhkx4kekEIOCVLcd5q8LOp7RM/wpggTyMRGbgmg7iWTNNiraTMfw37zAr/e6hsRpNHTpsSrrSpoKfNKAra7NBQPZx4uh+FSDNerpSur3qFaD4NFMiogOg812DeOdnz/iRe2J83CFEA0mVBVvJFGJXIQEZ/zmv46WWvdLBJnLCvgRQY1PJ/+5e56p9SEWKWxkWRsquhcqZT4q2GzQNmg+c9lH0NOUXup3q5+9bpeThQbusWRV3z/woRqewY1VTDFXQuOanBfufE/x5KEgfSKGoTw5kezZqokWgyIWq8GyMwureoIX07UuOhBvudkz3fETlfDRPVyEYbuDP8wKhqUYNEI1HOajjysTdaPSbHCzy6qQSskZ3gA42pAK3As8p81XC8yt5ul/jQgdQZj6T1h/Tq4RfUyeAaiNAzFWjNTw27zBb/eyg1AalBejnkSU/ACwQykBE1nEbczE0N+2wmnHxMMwf0z4ea5dRQAsWU5vTVNTSBK8OTyu6c1LD0jdnjfw9VwT+ZIPR6uhouQiYX5hq6QIZ0skCJtxpm3znx+/a4eguQUgMyUI5fD8kQBzcVXQ1nZHJmrkFGQiCdGBCeixqWF9lM+PiYppoC8jEa6EEm6p7GTecN09eQBLqk9wAELGoono/kOalhbZ29k0MPOVZTARKxSoeIykCHGkUEZqhBRlE15lGeg12k55DNhJOPaQp9XEZOkS5RM48CUQe1xttr+GN63bsDPPBfw8oP9o58x+RU2SBR4w64v4UUI7pHNKlJQUoOhF5VQ7IGWTC9fSLC/WuYxz5mYX73UFUAYpyIbjGm9JoamnmIMdOBReK9hl327vbIwdRqGmKbiLLpRwCGt8FX1BBSgDAZRNHnvYY9ZmF+91BCVwKicZtdpHJhouhriESBC4tVxvk0NZRnqME5Oyf+3x4nZO5EoHgqzLiZjilA7/kgakhtNEKlIsTI5Bra7fhDLFkAMuQU9m96m9c91IMITSpGZFeDGDURn2uI54FcXf9gH6nQ5BpkPKplyUHsd06zW98kx+kj3zK08JZnmKG/uB/7BQkDSoZsamhhKN0lB9pcZ+/O0ZcLi1cEMqsmZMNna+7CZBK+u6vTSOScxsSS5UwmVic9tdVKmi/8MRBokgN5Nti7cy8XxiXzzml27vWhuLWzyv5/++6FqXmwtM8+xOIWuZxua5F9EN8uuZxt18c+zoF7MulkKwfsY3ndS1M7lcfLPp73iFzOc+Rln2Pd736VgbOs+dfZJzrwr7hffeMMCyv+A/bpVhdP/NuetWW3is+xsLzm2fafLK6ymf0HG+uQI8Z5wW0AAAAASUVORK5CYII=" style="display:block;" width="100%" alt="">
       <div id="stagebox">
         <div id="stage"></div>
@@ -30,17 +31,20 @@ export default {
     }
   },
   mounted(){
-    this.seats = new SeatsMap({
-      el : '#seats',
-      data : seatData,
-      onClick : (data)=>{
-        console.log(data, 'data')
-        this.selection = this.seats.getSelection()
-        console.log(this.seats.getSelection(), 'getSelection')
-      }
-    })
+    
   },
   methods :{
+    initSeats(){
+      this.seats = new SeatsMap({
+        el : '#seats',
+        data : seatData,
+        onClick : (data)=>{
+          console.log(data, 'data')
+          this.selection = this.seats.getSelection()
+          console.log(this.seats.getSelection(), 'getSelection')
+        }
+      })
+    },
     clear(){
       this.seats.clearSelection()
       this.selection = this.seats.getSelection()
@@ -50,6 +54,7 @@ export default {
 </script>
 
 <style>
+
 *{
   margin: 0;
   padding: 0;
@@ -71,65 +76,5 @@ export default {
   height: 20px;
   margin: auto;
 }
-#seats img{
-  width: 100%;
-  display:block
-}
-#stagebox{
-  margin-top: 10px;
-  height: 420px;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid #ddd;
-}
-#stage{
-  position: absolute;
-  left: 0;
-  top: 0;
-  border: 1px solid #ff0000;
-}
-#debug{
-  width:100%;  
-  padding: 0 15px;
-  overflow:auto;
-}
-#thumbnail{
-  text-align: center;
-  width: 164px;
-  height: 176px;
-  top: 6px;
-  right: 6px;
-  border-radius: 6px;
-  position:absolute;
-  background: rgba(0, 0, 0, .6);
-  z-index: 9999;
-  overflow: hidden;
-}
-#thumbnail img{
-  width: 50%;
-  margin-left: 25%;
-  position: relative;
-}
-#thumbnail #thumbnailStage{
-  top: 12px;
-  position: absolute;
-  height: 164px;
-  width: 164px;
-}
-#thumbnail svg{
-  /* width : 100%; */
-  position:absolute;
-  left: 2px;
-}
-#thumbnail #thumbnailview{
-  z-index: 9999999;  
-  position: absolute;
-  box-sizing: border-box;
-  border: 1px solid rgb(255, 45, 121);
-  left : 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-}
+@import './views/seats/index.css'
 </style>

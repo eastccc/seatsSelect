@@ -17,6 +17,7 @@ class SeatsMap {
     this.tbbox = 164
     this.stagebox = null
     this.stage = null
+    this.thumbnail = null
     this.thumbnailview = null
     this.createScene()
     this.stageStyle = this.stage.style
@@ -40,6 +41,7 @@ class SeatsMap {
     this.curScale = 1
     this.moveLengthX = 0
     this.moveLengthY = 0 
+    this.timeout = null
     this.init()
   }
   loadData(data){}
@@ -61,8 +63,8 @@ class SeatsMap {
     this.curScale = this.minScale
     
     // 小图视窗初始化
-    this.initStage()
-    this.initThumbnail()
+    this.createStage()
+    this.createThumbnail()
     this.creatSeats()
     this.createSnapshot();
     //事件处理
@@ -77,8 +79,8 @@ class SeatsMap {
     this.stagebox.id="stagebox"
     this.stage = document.createElement('div')
     this.stage.id="stage"
-    const thumbnail = document.createElement('div')
-    thumbnail.id="thumbnail"
+    this.thumbnail = document.createElement('div')
+    this.thumbnail.id="thumbnail"
     const thumbnailStage = document.createElement('div')
     thumbnailStage.id="thumbnailStage"
     this.thumbnailview = document.createElement('div')
@@ -90,12 +92,12 @@ class SeatsMap {
     seats.appendChild(stageBg)
     this.stagebox.appendChild(this.stage)
     seats.appendChild(this.stagebox)
-    thumbnail.appendChild(thumbnailBg)
-    thumbnail.appendChild(thumbnailStage)
+    this.thumbnail.appendChild(thumbnailBg)
+    this.thumbnail.appendChild(thumbnailStage)
     thumbnailStage.appendChild(this.thumbnailview)
-    seats.appendChild(thumbnail)
+    seats.appendChild(this.thumbnail)
   }
-  initStage(){
+  createStage(){
     this.draw = SVG().addTo('#stage').size(this.width, this.height)
     this.group = this.draw.group()
     this.stageStyle.width = this.width + 'px'
@@ -106,7 +108,7 @@ class SeatsMap {
     this.stageTop = this.startTop
     this.stageStyle.transform = `translate(${this.stageLeft}px,${this.stageTop}px)scale(${this.minScale})`
   }
-  initThumbnail(){
+  createThumbnail(){
     this.thumbnailDraw = SVG().addTo('#thumbnailStage').size(this.width, this.height)
     this.vStartTop = (this.tbbox - this.rate*this.height)/2
     this.vStartLeft = 0
@@ -125,6 +127,8 @@ class SeatsMap {
       seatgroup.bindEvent(_=>{
         this.createSnapshot()
         this.onClick(_)
+        // clearTimeout(this.timeout)
+        // this.timeout = setTimeout(()=>{this.thumbnail.style.visibility = 'hidden'}, 1000)
       })
       this.group.add(seat);
     })
@@ -152,18 +156,24 @@ class SeatsMap {
     this.mc = new Hammer.Manager(this.stagebox);
     this.mc.add(new Hammer.Pan({ threshold: 0, pointers: 0 }));  
     this.mc.add(new Hammer.Pinch({ threshold: 0 })).recognizeWith(this.mc.get('pan'));
-    this.mc.on("hammer.input", e=>{});
+    this.mc.on("hammer.input", e=>{
+      this.thumbnail.style.visibility = 'visible'
+    });
     this.mc.on("panstart", e=>{}); 
     this.mc.on("panmove", e=>this.onMove(e));
     this.mc.on("panend", e=>{
       this.stageLeft = this.moveLengthX
       this.stageTop = this.moveLengthY
+      clearTimeout(this.timeout)
+      this.timeout = setTimeout(()=>{this.thumbnail.style.visibility = 'hidden'}, 1000)
     });
     this.mc.on("pinchstart", e=>{});
     this.mc.on('pinchin', e=>this.onPinchin(e));
     this.mc.on('pinchout', e=>this.onPinchout(e));
     this.mc.on("pinchend", e=>{
       this.oldScale = this.curScale
+      clearTimeout(this.timeout)
+      this.timeout = setTimeout(()=>{this.thumbnail.style.visibility = 'hidden'}, 1000)
     });
   }
   onPinchin(e){
